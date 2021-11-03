@@ -1,4 +1,4 @@
-import react from 'react';
+
 
 import { StyledButton } from './compStyles/StyledButton';
 

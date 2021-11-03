@@ -1,4 +1,5 @@
-import react from 'react';
+
+
 import { StyledStage } from './compStyles/StyledStage'
 import Cell from './Cell';
 
