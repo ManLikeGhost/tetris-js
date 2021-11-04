@@ -7,9 +7,8 @@ function App() {
 	return (
 		<div className='App'>
 			<div>
-				<div>
-					<Tetris />
-				</div>
+				<Tetris />
+
 				<div className='App-header'>
 					<img src={logo} className='App-logo' alt='logo' />
 				</div>
