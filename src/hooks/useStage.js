@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Prev } from 'react-bootstrap/esm/PageItem';
+// import { prev } from 'react-bootstrap/esm/PageItem';
 
 import { createStage } from '../gameHelpers';
 
@@ -9,8 +9,8 @@ export const useStage = (player, resetPlayer) => {
 	useEffect(() => {
 		const updateStage = (prevStage) => {
 			// First clean up stage
-			const newStage = prevStage.map((row) =>
-				row.map((cell) => (cell[1] === 'CLEAR' ? [0, 'CLEAR'] : cell))
+			const newStage = prevStage.map( ( row ) =>
+				row.map( ( cell ) => ( cell[ 1 ] === 'CLEAR' ? [ 0, 'CLEAR' ] : cell ) ),
 			);
 			// draw tetromino
 			player.tetromino.forEach((row, y) => {
@@ -22,11 +22,16 @@ export const useStage = (player, resetPlayer) => {
 					}
 				});
 			});
+			// Then check if we collided
+			if ( player.collided ) {
+				resetPlayer();
+			}
+
 
 			return newStage;
 		};
 		setStage((prev) => updateStage(prev));
-	}, [player]);
+	}, [player, resetPlayer]);
 
 	return [stage, setStage];
 };
